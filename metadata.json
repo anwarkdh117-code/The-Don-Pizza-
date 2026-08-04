@@ -1,0 +1,6 @@
+{
+  "name": "DON PIZZA",
+  "description": "Official website for DON PIZZA in Faisalabad. Freshly baked pizzas, burgers, wraps, pasta, special deals, online ordering and reservation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
