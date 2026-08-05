@@ -1,5 +1,8 @@
 import React from 'react';
-import { Phone, MapPin, Clock, Facebook, Instagram, MessageSquare, ArrowUp } from 'lucide-react';
+import { 
+  Phone, MapPin, Clock, Facebook, Instagram, MessageSquare, ArrowUp, 
+  Home, Utensils, Flame, Info, Image as ImageIcon, ChevronRight 
+} from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const scrollToTop = () => {
@@ -79,38 +82,45 @@ export const Footer: React.FC = () => {
             </h4>
             <ul className="space-y-2.5 text-xs text-zinc-400 font-medium">
               <li>
-                <button onClick={() => scrollToId('home')} className="hover:text-amber-300 transition-colors">
-                  Home
+                <button onClick={() => scrollToId('home')} className="hover:text-amber-300 transition-colors flex items-center gap-2">
+                  <Home className="w-3.5 h-3.5 text-amber-500" />
+                  <span>Home</span>
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollToId('menu')} className="hover:text-amber-300 transition-colors">
-                  Menu
+                <button onClick={() => scrollToId('menu')} className="hover:text-amber-300 transition-colors flex items-center gap-2">
+                  <Utensils className="w-3.5 h-3.5 text-amber-500" />
+                  <span>Menu</span>
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollToId('deals')} className="hover:text-amber-300 transition-colors">
-                  Deals & Combos
+                <button onClick={() => scrollToId('deals')} className="hover:text-amber-300 transition-colors flex items-center gap-2">
+                  <Flame className="w-3.5 h-3.5 text-red-500" />
+                  <span>Deals & Combos</span>
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollToId('about')} className="hover:text-amber-300 transition-colors">
-                  About Us
+                <button onClick={() => scrollToId('about')} className="hover:text-amber-300 transition-colors flex items-center gap-2">
+                  <Info className="w-3.5 h-3.5 text-amber-500" />
+                  <span>About Us</span>
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollToId('gallery')} className="hover:text-amber-300 transition-colors">
-                  Photo Gallery
+                <button onClick={() => scrollToId('gallery')} className="hover:text-amber-300 transition-colors flex items-center gap-2">
+                  <ImageIcon className="w-3.5 h-3.5 text-amber-500" />
+                  <span>Photo Gallery</span>
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollToId('contact')} className="hover:text-amber-300 transition-colors">
-                  Contact
+                <button onClick={() => scrollToId('contact')} className="hover:text-amber-300 transition-colors flex items-center gap-2">
+                  <Phone className="w-3.5 h-3.5 text-amber-500" />
+                  <span>Contact</span>
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollToId('location')} className="hover:text-amber-300 transition-colors">
-                  Location & Map
+                <button onClick={() => scrollToId('location')} className="hover:text-amber-300 transition-colors flex items-center gap-2">
+                  <MapPin className="w-3.5 h-3.5 text-red-500" />
+                  <span>Location & Map</span>
                 </button>
               </li>
             </ul>

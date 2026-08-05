@@ -2,18 +2,20 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { PIZZA_ITEMS, OTHER_MENU_ITEMS } from '../data/menuData';
 import { MenuItem, CategoryId, CartItem } from '../types';
-import { Search, Plus, Check, Sparkles, Filter, ShoppingBag } from 'lucide-react';
+import { Search, Plus, Check, Sparkles, Filter, ShoppingBag, FileText } from 'lucide-react';
 
 interface MenuSectionProps {
   selectedCategory: CategoryId;
   onSelectCategory: (category: CategoryId) => void;
   onAddToCart: (item: CartItem) => void;
+  onOpenPhysicalMenuCard?: () => void;
 }
 
 export const MenuSection: React.FC<MenuSectionProps> = ({
   selectedCategory,
   onSelectCategory,
   onAddToCart,
+  onOpenPhysicalMenuCard,
 }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [activeItemForSize, setActiveItemForSize] = useState<MenuItem | null>(null);
@@ -106,6 +108,18 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
           <p className="text-zinc-400 text-sm sm:text-base font-sans">
             Freshly prepared with authentic Pakistani flavors & international standards. Select your sizes and order instantly!
           </p>
+
+          {onOpenPhysicalMenuCard && (
+            <div className="pt-2">
+              <button
+                onClick={onOpenPhysicalMenuCard}
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-amber-500 via-amber-600 to-red-600 text-black font-black text-xs sm:text-sm shadow-xl shadow-amber-500/20 hover:scale-105 active:scale-95 transition-all border border-amber-300"
+              >
+                <FileText className="w-4 h-4 text-black" />
+                <span>View Original Menu Cards / اصلی مینو کارڈ</span>
+              </button>
+            </div>
+          )}
         </div>
 
         {/* Search & Category Tabs */}
@@ -131,8 +145,8 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
             )}
           </div>
 
-          {/* Category Filter Pills */}
-          <div className="flex items-center justify-center gap-2 flex-wrap">
+          {/* Category Filter Pills (Horizontal Scroll on Mobile, Wrapped on Desktop) */}
+          <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-2 px-1 w-full justify-start sm:justify-center flex-nowrap sm:flex-wrap scroll-smooth snap-x">
             {categoriesNav.map((cat) => {
               const isActive = selectedCategory === cat.id;
               return (
@@ -140,14 +154,14 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
                   key={cat.id}
                   id={`menu-cat-${cat.id}`}
                   onClick={() => onSelectCategory(cat.id)}
-                  className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-200 flex items-center gap-2 border ${
+                  className={`shrink-0 px-4 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-200 flex items-center gap-2 border snap-start ${
                     isActive
                       ? 'bg-gradient-to-r from-red-600 to-amber-600 text-white border-amber-400/50 shadow-lg shadow-red-700/30 scale-105'
                       : 'bg-zinc-900/90 text-zinc-400 border-zinc-800 hover:text-white hover:border-zinc-700'
                   }`}
                 >
                   <span>{cat.emoji}</span>
-                  <span>{cat.name}</span>
+                  <span className="whitespace-nowrap">{cat.name}</span>
                 </button>
               );
             })}

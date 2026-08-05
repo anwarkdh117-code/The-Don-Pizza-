@@ -133,39 +133,81 @@ export const ContactSection: React.FC = () => {
 
         </div>
 
-        {/* Online Ordering & Social Channels Bar */}
-        <div className="mb-16 p-6 rounded-3xl bg-gradient-to-r from-zinc-900 via-zinc-950 to-zinc-900 border border-amber-500/30 text-center space-y-4">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div className="text-left">
-              <span className="text-xs font-bold text-amber-400 uppercase tracking-widest block">Official Channels</span>
-              <h4 className="text-lg font-bold font-serif text-white">Order Online or Connect With Us</h4>
-            </div>
+        {/* Online Ordering & Social Channels Bar with Icons on Top */}
+        <div className="mb-16 p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-zinc-900 via-zinc-950 to-zinc-900 border border-amber-500/30 text-center space-y-6 shadow-2xl">
+          <div>
+            <span className="text-xs font-bold text-amber-400 uppercase tracking-widest block mb-1">Official Online Channels</span>
+            <h4 className="text-xl sm:text-2xl font-bold font-serif text-white">Connect & Follow DON PIZZA</h4>
+          </div>
 
-            <div className="flex flex-wrap items-center justify-center gap-3">
-              {/* Facebook */}
-              <a
-                href="https://www.facebook.com/people/The-Don/100083167198124/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-5 py-2.5 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-extrabold text-xs shadow-lg shadow-blue-600/30 flex items-center gap-2 transition-all"
-              >
-                <Facebook className="w-4 h-4" />
-                <span>The Don | Facebook</span>
-                <ExternalLink className="w-3.5 h-3.5" />
-              </a>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            {/* Facebook */}
+            <a
+              href="https://www.facebook.com/people/The-Don/100083167198124/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group p-4 rounded-2xl bg-zinc-900/90 hover:bg-blue-950/40 border border-blue-500/30 hover:border-blue-400 flex flex-col items-center justify-center text-center transition-all transform hover:-translate-y-1 shadow-lg"
+            >
+              <div className="w-10 h-10 rounded-full bg-blue-600/20 text-blue-400 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+                <Facebook className="w-5 h-5" />
+              </div>
+              <span className="text-xs font-extrabold text-white group-hover:text-blue-300">Facebook</span>
+              <span className="text-[10px] text-zinc-400 mt-0.5 flex items-center gap-1">
+                <span>The Don Page</span>
+                <ExternalLink className="w-2.5 h-2.5" />
+              </span>
+            </a>
 
-              {/* Instagram */}
-              <a
-                href="https://www.instagram.com/thedonofficial_fsd"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-5 py-2.5 rounded-full bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 hover:opacity-90 text-white font-extrabold text-xs shadow-lg flex items-center gap-2 transition-all"
-              >
-                <Instagram className="w-4 h-4" />
+            {/* Instagram */}
+            <a
+              href="https://www.instagram.com/thedonofficial_fsd"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group p-4 rounded-2xl bg-zinc-900/90 hover:bg-pink-950/40 border border-pink-500/30 hover:border-pink-400 flex flex-col items-center justify-center text-center transition-all transform hover:-translate-y-1 shadow-lg"
+            >
+              <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-purple-600 to-pink-500 text-white flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+                <Instagram className="w-5 h-5" />
+              </div>
+              <span className="text-xs font-extrabold text-white group-hover:text-pink-300">Instagram</span>
+              <span className="text-[10px] text-zinc-400 mt-0.5 flex items-center gap-1">
                 <span>@thedonofficial_fsd</span>
-                <ExternalLink className="w-3.5 h-3.5" />
-              </a>
-            </div>
+                <ExternalLink className="w-2.5 h-2.5" />
+              </span>
+            </a>
+
+            {/* Google Maps Location */}
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=DON+PIZZA+Chak+117+J.B+Dhanola+Faisalabad+Pakistan"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group p-4 rounded-2xl bg-zinc-900/90 hover:bg-red-950/40 border border-red-500/30 hover:border-red-400 flex flex-col items-center justify-center text-center transition-all transform hover:-translate-y-1 shadow-lg"
+            >
+              <div className="w-10 h-10 rounded-full bg-red-600/20 text-red-500 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+                <MapPin className="w-5 h-5" />
+              </div>
+              <span className="text-xs font-extrabold text-white group-hover:text-red-300">Google Maps</span>
+              <span className="text-[10px] text-zinc-400 mt-0.5 flex items-center gap-1">
+                <span>G455+9X Location</span>
+                <ExternalLink className="w-2.5 h-2.5" />
+              </span>
+            </a>
+
+            {/* WhatsApp */}
+            <a
+              href={`https://wa.me/923000471281?text=${whatsappMessage}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group p-4 rounded-2xl bg-zinc-900/90 hover:bg-emerald-950/40 border border-emerald-500/30 hover:border-emerald-400 flex flex-col items-center justify-center text-center transition-all transform hover:-translate-y-1 shadow-lg"
+            >
+              <div className="w-10 h-10 rounded-full bg-emerald-600/20 text-emerald-400 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+                <MessageSquare className="w-5 h-5" />
+              </div>
+              <span className="text-xs font-extrabold text-white group-hover:text-emerald-300">WhatsApp Chat</span>
+              <span className="text-[10px] text-zinc-400 mt-0.5 flex items-center gap-1">
+                <span>+92 300 0471281</span>
+                <ExternalLink className="w-2.5 h-2.5" />
+              </span>
+            </a>
           </div>
         </div>
         <div id="location" className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">

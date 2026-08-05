@@ -1,15 +1,16 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { ShoppingBag, Utensils, Award, Sparkles, Star, ChevronRight } from 'lucide-react';
+import { ShoppingBag, Utensils, Award, Sparkles, Star, ChevronRight, FileText } from 'lucide-react';
 import heroPizzaBg from '../assets/images/hero_pizza_bg_1785839960245.jpg';
 import floatingBurgerImg from '../assets/images/floating_burger_1785839979023.jpg';
 
 interface HeroProps {
   onOrderNow: () => void;
   onViewMenu: () => void;
+  onOpenPhysicalMenuCard?: () => void;
 }
 
-export const Hero: React.FC<HeroProps> = ({ onOrderNow, onViewMenu }) => {
+export const Hero: React.FC<HeroProps> = ({ onOrderNow, onViewMenu, onOpenPhysicalMenuCard }) => {
   return (
     <section id="home" className="relative min-h-[92vh] flex items-center justify-center overflow-hidden bg-black text-white">
       {/* Background Image with Dark Vignette Overlay */}
@@ -113,6 +114,16 @@ export const Hero: React.FC<HeroProps> = ({ onOrderNow, onViewMenu }) => {
                 <Utensils className="w-5 h-5 text-red-500" />
                 <span>View Menu</span>
               </button>
+
+              {onOpenPhysicalMenuCard && (
+                <button
+                  onClick={onOpenPhysicalMenuCard}
+                  className="w-full sm:w-auto px-6 py-3.5 rounded-full bg-amber-500 hover:bg-amber-400 text-black font-extrabold text-sm border border-amber-300 shadow-lg transform hover:-translate-y-1 active:translate-y-0 transition-all flex items-center justify-center gap-2"
+                >
+                  <FileText className="w-4 h-4 text-black" />
+                  <span>Physical Menu Card / اصلی کارڈ</span>
+                </button>
+              )}
             </motion.div>
 
             {/* Quick Highlights Bar */}

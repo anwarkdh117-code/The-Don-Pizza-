@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { ShoppingBag, Menu as MenuIcon, X, Phone, MapPin, ChevronRight, Clock, Facebook, Instagram } from 'lucide-react';
+import { 
+  ShoppingBag, Menu as MenuIcon, X, Phone, MapPin, ChevronRight, Clock, 
+  Facebook, Instagram, Home, Utensils, Flame, Info, Image as ImageIcon, MessageSquare 
+} from 'lucide-react';
 
 interface NavbarProps {
   cartCount: number;
@@ -45,13 +48,13 @@ export const Navbar: React.FC<NavbarProps> = ({ cartCount, onOpenCart }) => {
   };
 
   const navLinks = [
-    { name: 'Home', id: 'home' },
-    { name: 'Menu', id: 'menu' },
-    { name: 'Deals', id: 'deals' },
-    { name: 'About', id: 'about' },
-    { name: 'Gallery', id: 'gallery' },
-    { name: 'Contact', id: 'contact' },
-    { name: 'Location', id: 'location' },
+    { name: 'Home', id: 'home', icon: Home },
+    { name: 'Menu', id: 'menu', icon: Utensils },
+    { name: 'Deals', id: 'deals', icon: Flame },
+    { name: 'About', id: 'about', icon: Info },
+    { name: 'Gallery', id: 'gallery', icon: ImageIcon },
+    { name: 'Contact', id: 'contact', icon: Phone },
+    { name: 'Location', id: 'location', icon: MapPin },
   ];
 
   return (
@@ -137,18 +140,20 @@ export const Navbar: React.FC<NavbarProps> = ({ cartCount, onOpenCart }) => {
           <nav className="hidden md:flex items-center gap-1 bg-zinc-900/60 p-1.5 rounded-full border border-zinc-800/80">
             {navLinks.map((link) => {
               const isActive = activeSection === link.id;
+              const IconComp = link.icon;
               return (
                 <button
                   key={link.id}
                   id={`nav-link-${link.id}`}
                   onClick={() => scrollToSection(link.id)}
-                  className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${
+                  className={`px-3.5 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5 transition-all duration-200 ${
                     isActive
-                      ? 'bg-gradient-to-r from-red-600 to-amber-600 text-white font-semibold shadow-md shadow-red-600/20'
+                      ? 'bg-gradient-to-r from-red-600 to-amber-600 text-white font-bold shadow-md shadow-red-600/20'
                       : 'text-zinc-300 hover:text-white hover:bg-zinc-800/50'
                   }`}
                 >
-                  {link.name}
+                  <IconComp className="w-3.5 h-3.5" />
+                  <span>{link.name}</span>
                 </button>
               );
             })}
@@ -197,21 +202,27 @@ export const Navbar: React.FC<NavbarProps> = ({ cartCount, onOpenCart }) => {
         {mobileMenuOpen && (
           <div className="md:hidden bg-zinc-950/95 border-b border-amber-500/20 px-4 pt-3 pb-6 shadow-2xl animate-in slide-in-from-top duration-300">
             <div className="flex flex-col gap-2">
-              {navLinks.map((link) => (
-                <button
-                  key={link.id}
-                  id={`mobile-nav-${link.id}`}
-                  onClick={() => scrollToSection(link.id)}
-                  className={`flex items-center justify-between px-4 py-3 rounded-xl text-left font-medium text-sm transition-all ${
-                    activeSection === link.id
-                      ? 'bg-red-600/20 text-amber-400 border border-red-500/40 font-semibold'
-                      : 'text-zinc-300 hover:bg-zinc-900'
-                  }`}
-                >
-                  <span>{link.name}</span>
-                  <ChevronRight className="w-4 h-4 opacity-60" />
-                </button>
-              ))}
+              {navLinks.map((link) => {
+                const IconComp = link.icon;
+                return (
+                  <button
+                    key={link.id}
+                    id={`mobile-nav-${link.id}`}
+                    onClick={() => scrollToSection(link.id)}
+                    className={`flex items-center justify-between px-4 py-3 rounded-xl text-left font-medium text-sm transition-all ${
+                      activeSection === link.id
+                        ? 'bg-red-600/20 text-amber-400 border border-red-500/40 font-semibold'
+                        : 'text-zinc-300 hover:bg-zinc-900'
+                    }`}
+                  >
+                    <div className="flex items-center gap-2.5">
+                      <IconComp className="w-4 h-4 text-amber-400" />
+                      <span>{link.name}</span>
+                    </div>
+                    <ChevronRight className="w-4 h-4 opacity-60" />
+                  </button>
+                );
+              })}
               <div className="pt-2 border-t border-zinc-800 flex flex-col gap-2">
                 <button
                   id="mobile-order-cta"

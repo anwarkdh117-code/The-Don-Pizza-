@@ -4,9 +4,35 @@ import { DEALS } from '../data/menuData';
 import { CartItem } from '../types';
 import { Sparkles, Check, ShoppingBag, Flame } from 'lucide-react';
 
+import zingerImg from '../assets/images/zinger_burger_menu_1785921746842.jpg';
+import pattyImg from '../assets/images/classic_peti_burger_1785921346697.jpg';
+import pizzaImg from '../assets/images/chicken_fajita_pizza_1785922482725.jpg';
+import wrapImg from '../assets/images/wrap_crispy_zinger_1785923230431.jpg';
+import drinkImg from '../assets/images/soft_drink_bottle_1785841027598.jpg';
+import wingsImg from '../assets/images/hot_wings_menu_1785921782870.jpg';
+import pastaImg from '../assets/images/don_curicks_pasta_1785845263345.jpg';
+import rollImg from '../assets/images/chicken_spin_roll_card_1785923883580.jpg';
+import sandwichImg from '../assets/images/pizza_sandwich_card_1785923640707.jpg';
+import friesImg from '../assets/images/crispy_french_fries_1785841350057.jpg';
+
 interface DealsSectionProps {
   onAddToCart: (item: CartItem) => void;
 }
+
+const getItemImage = (itemStr: string) => {
+  const lower = itemStr.toLowerCase();
+  if (lower.includes('zinger')) return zingerImg;
+  if (lower.includes('patty') || lower.includes('peti')) return pattyImg;
+  if (lower.includes('sandwich')) return sandwichImg;
+  if (lower.includes('pizza')) return pizzaImg;
+  if (lower.includes('wrap')) return wrapImg;
+  if (lower.includes('roll')) return rollImg;
+  if (lower.includes('fries')) return friesImg;
+  if (lower.includes('drink') || lower.includes('liter') || lower.includes('litre')) return drinkImg;
+  if (lower.includes('wings')) return wingsImg;
+  if (lower.includes('pasta')) return pastaImg;
+  return null;
+};
 
 export const DealsSection: React.FC<DealsSectionProps> = ({ onAddToCart }) => {
   // State for deals with TF / SF options (Deals 7, 8, 9)
@@ -103,15 +129,27 @@ export const DealsSection: React.FC<DealsSectionProps> = ({ onAddToCart }) => {
                 )}
 
                 <div>
-                  {/* Image banner */}
-                  <div className="relative h-48 overflow-hidden bg-black">
-                    <img
-                      src={deal.image}
-                      alt={deal.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 filter brightness-90"
-                      referrerPolicy="no-referrer"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/40 to-transparent" />
+                  {/* Top Banner with Item Images */}
+                  <div className="relative h-48 sm:h-52 overflow-hidden bg-zinc-950 p-2 pt-10 flex items-center justify-center gap-1.5 border-b border-amber-500/20">
+                    {deal.items.map((itemStr, idx) => {
+                      const itemImg = getItemImage(itemStr) || deal.image;
+                      return (
+                        <div
+                          key={idx}
+                          className="relative flex-1 h-full rounded-xl overflow-hidden border border-amber-500/40 group-hover:scale-105 transition-transform duration-500 shadow-md bg-zinc-900"
+                        >
+                          <img
+                            src={itemImg}
+                            alt={itemStr}
+                            className="w-full h-full object-cover filter brightness-95"
+                            referrerPolicy="no-referrer"
+                          />
+                          <div className="absolute bottom-1 left-1/2 -translate-x-1/2 bg-black/85 px-1.5 py-0.5 rounded text-[9px] font-bold text-amber-300 border border-amber-500/40 whitespace-nowrap shadow max-w-[92%] truncate text-center">
+                            {itemStr}
+                          </div>
+                        </div>
+                      );
+                    })}
                   </div>
 
                   {/* Card Content */}
@@ -125,15 +163,27 @@ export const DealsSection: React.FC<DealsSectionProps> = ({ onAddToCart }) => {
                       <span className="text-[11px] font-extrabold uppercase tracking-wider text-amber-400 block">
                         Included in this deal:
                       </span>
-                      <ul className="space-y-1.5">
-                        {deal.items.map((itemStr, idx) => (
-                          <li key={idx} className="flex items-center gap-2 text-xs text-zinc-300 font-medium">
-                            <div className="w-4 h-4 rounded-full bg-red-950 border border-red-500/50 flex items-center justify-center shrink-0 text-amber-400">
-                              <Check className="w-2.5 h-2.5" />
-                            </div>
-                            <span>{itemStr}</span>
-                          </li>
-                        ))}
+                      <ul className="space-y-2">
+                        {deal.items.map((itemStr, idx) => {
+                          const itemImg = getItemImage(itemStr);
+                          return (
+                            <li key={idx} className="flex items-center gap-2.5 text-xs text-zinc-200 font-medium bg-zinc-950/80 p-2 pr-3 rounded-2xl border border-zinc-800/80 hover:border-amber-500/40 transition-colors">
+                              {itemImg ? (
+                                <img
+                                  src={itemImg}
+                                  alt={itemStr}
+                                  className="w-9 h-9 rounded-xl object-cover border border-amber-500/40 shrink-0 shadow-sm"
+                                  referrerPolicy="no-referrer"
+                                />
+                              ) : (
+                                <div className="w-9 h-9 rounded-xl bg-red-950 border border-red-500/50 flex items-center justify-center shrink-0 text-amber-400">
+                                  <Check className="w-4 h-4" />
+                                </div>
+                              )}
+                              <span className="font-semibold text-zinc-200">{itemStr}</span>
+                            </li>
+                          );
+                        })}
                       </ul>
                     </div>
 
