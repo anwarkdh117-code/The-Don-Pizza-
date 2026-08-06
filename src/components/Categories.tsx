@@ -5,7 +5,7 @@ import { Sparkles, ArrowRight } from 'lucide-react';
 import crispyFriesImg from '../assets/images/crispy_french_fries_1785841350057.jpg';
 import softDrinkBottleImg from '../assets/images/soft_drink_bottle_1785841027598.jpg';
 import donSpecialBurgerImg from '../assets/images/don_special_burger_1785844999346.jpg';
-import donCuricksPastaImg from '../assets/images/don_curicks_pasta_1785845263345.jpg';
+import bakedCheesyPastaImg from '../assets/images/baked_cheesy_pasta_1785923449106.jpg';
 
 interface CategoriesProps {
   onSelectCategory: (category: CategoryId) => void;
@@ -50,7 +50,7 @@ export const Categories: React.FC<CategoriesProps> = ({ onSelectCategory }) => {
       emoji: '🍝',
       description: 'Baked macaroni, special mixed sauce & Alfredo cream pasta.',
       itemCount: '3 Recipes',
-      bgImage: donCuricksPastaImg,
+      bgImage: bakedCheesyPastaImg,
     },
     {
       id: 'fries',

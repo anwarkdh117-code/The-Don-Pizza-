@@ -5,7 +5,7 @@ import mineralWaterBottleImg from '../assets/images/mineral_water_bottle_1785841
 import crispyFriesImg from '../assets/images/crispy_french_fries_1785841350057.jpg';
 import donSpecialBurgerImg from '../assets/images/don_special_burger_1785844999346.jpg';
 import donCuricksPastaImg from '../assets/images/don_curicks_pasta_1785845263345.jpg';
-import petiBurgerPhotoImg from '../assets/images/peti_burger_photo_1785921325188.jpg';
+import petiBurgerPhotoImg from '../assets/images/peti_burger_photo_1786009077123.jpg';
 import classicPetiBurgerImg from '../assets/images/classic_peti_burger_1785921346697.jpg';
 import zingerBurgerMenuImg from '../assets/images/zinger_burger_menu_1785921746842.jpg';
 import wrapChickenMenuImg from '../assets/images/wrap_chicken_menu_1785921764178.jpg';
@@ -20,7 +20,7 @@ import chickenTandooriPizzaImg from '../assets/images/chicken_tandoori_pizza_178
 import chickenTikkaPizzaImg from '../assets/images/chicken_tikka_pizza_1785922470667.jpg';
 import chickenFajitaPizzaImg from '../assets/images/chicken_fajita_pizza_1785922482725.jpg';
 import mayoGarlicPizzaImg from '../assets/images/mayo_garlic_pizza_1785922355084.jpg';
-import donSpecialPizzaImg from '../assets/images/don_special_pizza_1785922370572.jpg';
+import donSpecialPizzaImg from '../assets/images/don_special_pizza_menu_1786008551486.jpg';
 import malaiBotiPizzaImg from '../assets/images/malai_boti_pizza_1785922385784.jpg';
 import behariKababPizzaImg from '../assets/images/behari_kabab_pizza_1785922401452.jpg';
 import kababStufferPizzaImg from '../assets/images/kabab_stuffer_pizza_1785922416152.jpg';
@@ -30,9 +30,9 @@ import donSpecialBurgerCardImg from '../assets/images/don_special_burger_card_17
 import crispyBoneless2pcsImg from '../assets/images/crispy_boneless_2pcs_1785922997368.jpg';
 import wrapChickenGrillImg from '../assets/images/wrap_chicken_grill_1785923148806.jpg';
 import wrapCrispyZingerImg from '../assets/images/wrap_crispy_zinger_1785923230431.jpg';
-import bakedCheesyPastaImg from '../assets/images/baked_cheesy_pasta_1785923449106.jpg';
+import bakedCheesyPastaImg from '../assets/images/pasta_moderate_olives_1786009446141.jpg';
 import donSpecialPlatter900Img from '../assets/images/don_special_platter_900_1785923626736.jpg';
-import pizzaSandwichCardImg from '../assets/images/pizza_sandwich_card_1785923640707.jpg';
+import pizzaSandwichCardImg from '../assets/images/pizza_sandwich_fries_center_1786011954504.jpg';
 import chickenSpinRollCardImg from '../assets/images/chicken_spin_roll_card_1785923883580.jpg';
 import malaiBotiRollCardImg from '../assets/images/malai_boti_roll_card_1785924038346.jpg';
 import deal1ComboImg from '../assets/images/deal_1_combo_1785924947544.jpg';
@@ -184,7 +184,7 @@ export const OTHER_MENU_ITEMS: MenuItem[] = [
     name: 'Peti Burger',
     category: 'burgers',
     description: 'Crispy fried chicken patty topped with fresh lettuce, mayo, and classic tangy burger sauce in a toasted sesame bun.',
-    image: classicPetiBurgerImg,
+    image: petiBurgerPhotoImg,
     prices: [{ size: 'Standard', amount: 280 }],
   },
   {
@@ -392,7 +392,7 @@ export const OTHER_MENU_ITEMS: MenuItem[] = [
     category: 'drinks',
     description: 'Pure purified mineral drinking water 1.5L bottle.',
     image: mineralWaterBottleImg,
-    prices: [{ size: '1.5 Liter Water', amount: 100 }],
+    prices: [{ size: '1.5 Liter Water', amount: 120 }],
   },
   {
     id: 'dr6',
@@ -602,7 +602,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     id: 'g6',
     title: 'Baked Creamy Alfredo Pasta',
     category: 'pasta',
-    image: donCuricksPastaImg,
+    image: bakedCheesyPastaImg,
     caption: 'Hot baked penne pasta bubbling with double cheese and grilled tikka.',
   },
   {

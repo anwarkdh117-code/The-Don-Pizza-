@@ -5,14 +5,14 @@ import { CartItem } from '../types';
 import { Sparkles, Check, ShoppingBag, Flame } from 'lucide-react';
 
 import zingerImg from '../assets/images/zinger_burger_menu_1785921746842.jpg';
-import pattyImg from '../assets/images/classic_peti_burger_1785921346697.jpg';
+import pattyImg from '../assets/images/peti_burger_photo_1786009077123.jpg';
 import pizzaImg from '../assets/images/chicken_fajita_pizza_1785922482725.jpg';
 import wrapImg from '../assets/images/wrap_crispy_zinger_1785923230431.jpg';
 import drinkImg from '../assets/images/soft_drink_bottle_1785841027598.jpg';
 import wingsImg from '../assets/images/hot_wings_menu_1785921782870.jpg';
-import pastaImg from '../assets/images/don_curicks_pasta_1785845263345.jpg';
+import pastaImg from '../assets/images/pasta_moderate_olives_1786009446141.jpg';
 import rollImg from '../assets/images/chicken_spin_roll_card_1785923883580.jpg';
-import sandwichImg from '../assets/images/pizza_sandwich_card_1785923640707.jpg';
+import sandwichImg from '../assets/images/pizza_sandwich_fries_center_1786011954504.jpg';
 import friesImg from '../assets/images/crispy_french_fries_1785841350057.jpg';
 
 interface DealsSectionProps {
